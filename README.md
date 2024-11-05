@@ -24,7 +24,7 @@ Enter the date of the post (e.g., 2024-11-05):
 Do you want to include an image in your post? (y/n):
 ```
 
-<h4>To include an image either input a direct path or if you've placed them in the "blog_posts" folder just the name of the image will suffice.</h4>
+<h4>To include an image either input a direct path or if you've placed them in the "blog_posts" folder just the name of the image will suffice. You can input multiple images by separating them with spaces</h4>
 
 Once you've finished with the basic information, you will be bounced into nano which is the editor in which you can write your blog post. Maybe I'll implement a way to select editors maybe not, we'll see, I like nano a lot. Once you're done just save it and it will automatically generate an HTML file. 
 
