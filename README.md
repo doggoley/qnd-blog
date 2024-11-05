@@ -6,10 +6,6 @@ There are two main shell script files. One responsible for creating the blog pos
 
 It's a shell script. Just download it and use ```chmod +x``` dummy!
 
-<h2>Modification:</h2>
-
-It's a shell script.
-
 <h2>Usage:</h2> 
 
 Initialize the blog by launching the update script for the first time:
@@ -39,6 +35,10 @@ After that just run the first script again:
 ```
 
 It will automatically scan the folder *"blog_posts"* for new files and regenerate the *"index.html"* with new posts.
+
+<h2>Modification:</h2>
+
+It's a shell script.
 
 <h2>Bugs and Future Plans:</h2>
 
