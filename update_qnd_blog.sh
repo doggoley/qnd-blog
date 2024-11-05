@@ -29,20 +29,22 @@ index_content="
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>My Blog - Index</title>
+    <title>blog</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: monospace;
+            background-color: #211f31;
             color: #333;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #2c3e50;
             color: white;
             text-align: center;
             padding: 20px;
+        }
+        a {
+            text-decoration: none;
         }
         h1 {
             margin: 0;
@@ -53,7 +55,7 @@ index_content="
             max-width: 800px;
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 10%;
         }
         .post-list {
             margin: 20px auto;
@@ -80,12 +82,9 @@ index_content="
 </head>
 <body>
 
-<header>
-    <h1>Welcome to My Blog!</h1>
-</header>
 
 <article>
-    <h2>Blog Posts</h2>
+    <h2>Blog Posts:</h2>
     <div class='post-list'>
         <ul>
 "
@@ -127,11 +126,9 @@ done
 index_content+="
         </ul>
     </div>
+    <a href="http://doggoli.mooo.com"><~~ back to the main page</a>
 </article>
 
-<footer>
-    <p>&copy; 2024 My Blog</p>
-</footer>
 
 </body>
 </html>

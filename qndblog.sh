@@ -39,17 +39,19 @@ create_blog_post() {
     <title>$title</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: monospace;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #211f31;
             color: #333;
         }
         header {
-            background-color: #2c3e50;
             color: white;
             padding: 20px;
             text-align: center;
+        }
+        a {
+            text-decoration: none;
         }
         article {
             padding: 20px;
@@ -57,7 +59,6 @@ create_blog_post() {
             max-width: 800px;
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         h1 {
             font-size: 2.5em;
@@ -71,15 +72,6 @@ create_blog_post() {
             line-height: 1.6;
             font-size: 1.1em;
         }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #2c3e50;
-            color: white;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
     </style>
 </head>
 <body>
@@ -92,11 +84,8 @@ create_blog_post() {
     <p class='date'>$date</p>
     $img_tag
     <p>$content</p>
+    <a href="http://doggoli.mooo.com/blog"><~~ back</a>
 </article>
-
-<footer>
-    <p>&copy; 2024 My Blog</p>
-</footer>
 
 </body>
 </html>
