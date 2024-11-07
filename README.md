@@ -11,7 +11,7 @@ It's a shell script. Just download it and use ```chmod +x``` dummy!
 
 Simply run *"qndblog.sh"* which will prompt you with some basic info about creating a blog post such as the title, date and whether or not you want to include images within your post.
 
-<h4>To include an image input the link to the image hosted on your website (e.g. http://doggoli.mooo.com/blog/images/1.jpg), or if your running the script locally you can simply input the path to the images that you want to include. You can include multiple images by separating them with spaces</h4>
+<h4>To include an image input the link to the image hosted on your website (e.g. http://doggoli.mooo.com/blog/images/git.png), or if you're running the script locally you can simply input the path to the images that you want to include. You can include multiple images by separating them with spaces</h4>
 
 ```
 andrija@leliel:~$ ./qndblog.sh
