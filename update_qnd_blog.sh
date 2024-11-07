@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory where blog posts are stored
-BLOG_DIR="blog_posts"
+BLOG_DIR="$(pwd)"
 INDEX_FILE="index.html"
 
 # Create the blog directory if it doesn't exist

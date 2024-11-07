@@ -8,14 +8,10 @@ It's a shell script. Just download it and use ```chmod +x``` dummy!
 
 <h2>Usage:</h2> 
 
-Initialize the blog by launching the update script for the first time:
 
-```
-./update_qnd_blog.sh
-```
-This will create a folder called *"blog_posts"* in whatever directory you ran/initialized it. I recommend moving *"qndblog.sh"* into this folder so that you don't have to move every single blog entry manually into the *"blog_posts"* folder once you've created it. I will try to somehow automate that process so that you don't have to do this in the future...
+Simply run *"qndblog.sh"* which will prompt you with some basic info about creating a blog post such as the title, date and whether or not you want to include images within your post.
 
-After you've done that you can run *"qndblog.sh"* which will prompt you with some basic info about creating a blog post.
+<h4>To include an image input the link to the image hosted on your website (e.g. http://doggoli.mooo.com/blog/images/1.jpg), or if your running the script locally you can simply input the path to the images that you want to include. You can include multiple images by separating them with spaces</h4>
 
 ```
 andrija@leliel:~$ ./qndblog.sh
@@ -24,17 +20,15 @@ Enter the date of the post (e.g., 2024-11-05):
 Do you want to include an image in your post? (y/n):
 ```
 
-<h4>To include an image either input a direct path or if you've placed them in the "blog_posts" folder just the name of the image will suffice. You can include multiple images by separating them with spaces</h4>
+Once you've finished with the basic information, you will be bounced into nano which is the editor in which you can write your blog post. Maybe I'll implement a nicer way to select editors maybe not, we'll see, I like nano a lot. But for now you can just modify the script to replace nano with vim or ed or emacs or whatever the fuck you'd like. Once you're done just save it and it will automatically generate an HTML file with the title *"blog_post_YYYYMMDDHHMMSS"* in the current working directory.
 
-Once you've finished with the basic information, you will be bounced into nano which is the editor in which you can write your blog post. Maybe I'll implement a way to select editors maybe not, we'll see, I like nano a lot. Once you're done just save it and it will automatically generate an HTML file. 
-
-After that just run the first script again:
+After that just run the update script:
 
 ```
 ./update_qnd_blog.sh
 ```
 
-It will automatically scan the folder *"blog_posts"* for new files and regenerate the *"index.html"* with new posts.
+It will automatically scan the current working directory for new files and regenerate the *"index.html"* with new posts.
 
 <h2>Modification:</h2>
 
