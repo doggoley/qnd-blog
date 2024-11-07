@@ -25,7 +25,7 @@ Once you've finished with the basic information, you will be bounced into nano w
 After that just run the update script:
 
 ```
-./update_qnd_blog.sh
+andrija@leliel:~$ ./update_qnd_blog.sh
 Do you want to run the script in debug mode? (y/n)
 ```
 You will be prompted to choose if you want to run the script in debug mode which will automatically display the contents of the newly indexed blog posts.
