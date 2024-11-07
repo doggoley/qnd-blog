@@ -24,6 +24,7 @@ create_blog_post() {
 
     # Let the user write the content of the blog post in nano
     echo "Open nano to write the content of your blog post. Save and exit nano when you're done."
+    >/tmp/blog_content.txt
     nano /tmp/blog_content.txt
 
     # Read the content from the temporary file

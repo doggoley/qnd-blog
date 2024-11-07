@@ -38,7 +38,8 @@ It's a shell script.
 
 <h2>Bugs and Future Plans:</h2>
 
-So far it seems to work fairly OK, with the exception that it does not remove the file in *"/tmp"* once the blogpost is finished. So you have to backspace the fuck out of your previous blog entry before writing a new one (or just null the file). So I'll see if I can fix that soon enough.
+So far it seems to work fairly OK, ~~with the exception that it does not remove the file in *"/tmp"* once the blogpost is finished. So you have to backspace the fuck out of your previous blog entry before writing a new one (or just null the file). So I'll see if I can fix that soon enough.~~
+The file is now nulled on it's own, bug fixed. It works great now. I also added debug mode which allows for insight into what you're doing in case something isn't right!
 
 In terms of future features, first and foremost I'd like for this to be more well rounded and not a task split in two by separate scripts. However in terms of actual features, it'd be nice if you could select what editor you'd like to use, maybe a better way of directly editing the HTML and CSS so that you can easily swap styles, some minor refinements like that. Overall nothing too special, I want to keep it as minimal as possible.
 
