@@ -26,7 +26,7 @@ After that just run the update script:
 
 ```
 andrija@leliel:~$ ./update_qnd_blog.sh
-Do you want to run the script in debug mode? (y/n)
+Do you want to run the script in debug mode? (y/n): 
 ```
 You will be prompted to choose if you want to run the script in debug mode which will automatically display the contents of the newly indexed blog posts.
 Once you make the decisiion it will automatically scan the current working directory for new files and regenerate the *"index.html"* with new posts.
