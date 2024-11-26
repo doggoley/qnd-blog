@@ -19,6 +19,40 @@ if [ ${#HTML_FILES[@]} -eq 0 ]; then
     exit 1
 fi
 
+# Prepare an array to store the blog post info (title, date, file)
+declare -a posts
+
+# Loop through all blog post HTML files matching the pattern
+for file in "${HTML_FILES[@]}"; do
+    echo "Processing file: $file"
+
+    # Extract the title (using a simple grep)
+    title=$(grep -o '<title>.*</title>' "$file" | sed 's/<title>\(.*\)<\/title>/\1/')
+
+    # Extract the date (using sed for matching <p class="date"> or <p class='date'>)
+    date=$(sed -n "s/.*<p class=['\"]date['\"][^>]*>\([^<]*\)<\/p>.*/\1/p" "$file")
+
+    # Debug: Print extracted title and date
+    echo "Extracted title: '$title'"
+    echo "Extracted date: '$date'"
+
+    # If title or date is not found, skip the file and print an error message
+    if [ -z "$title" ] || [ -z "$date" ]; then
+        echo "Skipping file '$file' due to missing title or date."
+        continue
+    fi
+
+    # Convert the date into a timestamp format (assumes date is in "YYYY-MM-DD" format)
+    timestamp=$(date -d "$date" +%s)
+
+    # Store the post info (timestamp, title, file) in the array
+    posts+=("$timestamp|$title|$file")
+done
+
+# Sort the posts array by timestamp in descending order (latest first)
+IFS=$'\n' sorted_posts=($(sort -t '|' -k1,1nr <<< "${posts[*]}"))
+unset IFS
+
 # Start the index.html content
 index_content="
 <!DOCTYPE html>
@@ -86,25 +120,15 @@ index_content="
         <ul>
 "
 
-# Loop through all blog post HTML files matching the pattern
-for file in "${HTML_FILES[@]}"; do
-    echo "Processing file: $file"
+# Loop through the sorted posts and add them to the index
+for post in "${sorted_posts[@]}"; do
+    # Split the post info into timestamp, title, and file
+    timestamp=$(echo "$post" | cut -d '|' -f 1)
+    title=$(echo "$post" | cut -d '|' -f 2)
+    file=$(echo "$post" | cut -d '|' -f 3)
 
-    # Extract the title (using a simple grep)
-    title=$(grep -o '<title>.*</title>' "$file" | sed 's/<title>\(.*\)<\/title>/\1/')
-
-    # Extract the date (using sed for matching <p class="date"> or <p class='date'>)
-    date=$(sed -n "s/.*<p class=['\"]date['\"][^>]*>\([^<]*\)<\/p>.*/\1/p" "$file")
-
-    # Debug: Print extracted title and date
-    echo "Extracted title: '$title'"
-    echo "Extracted date: '$date'"
-
-    # If title or date is not found, skip the file and print an error message
-    if [ -z "$title" ] || [ -z "$date" ]; then
-        echo "Skipping file '$file' due to missing title or date."
-        continue
-    fi
+    # Extract the date again (from the timestamp) to display in the index
+    date=$(date -d @$timestamp "+%Y-%m-%d")
 
     # Create a list item with a link to the blog post
     index_content+="
@@ -119,7 +143,7 @@ done
 index_content+="
         </ul>
     </div>
-    <a href="http://doggoli.mooo.com"><~~ back to the main page</a>
+    <a href='http://doggoli.mooo.com'><~~ back to the main page</a>
 </article>
 
 
@@ -128,9 +152,7 @@ index_content+="
 "
 
 # Initialize the debug variable
-
 if [[ $debug_mode == "y" || $debug_mode == "Y" ]]; then
-
     # Output raw content of the file to help with debugging
     echo "Raw content of '$file':"
     cat "$file"
